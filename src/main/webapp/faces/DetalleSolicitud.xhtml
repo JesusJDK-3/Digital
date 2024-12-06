@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:body>
+    <h:form id="formDetalleSolicitud">
+        <div class="detalle-solicitud-container">
+            <p:panel header="Detalle de la solicitud" styleClass="panel-detalle-solicitud">
+                <!-- Información general -->
+                 <!-- Información general -->
+                <div class="info-container">
+                    <p:outputLabel value="Descripción:" styleClass="label-bold" />
+                    <p:inputTextarea id="descripcion" readonly="true"
+                                     value="#{solicitudBean.solicitud.descripcion}"
+                                     placeholder="No hay información disponible."
+                                     styleClass="descripcion-textarea" />
+
+                    <div class="info-row">
+                        <p:outputLabel value="ID de solicitud:" styleClass="label-bold" />
+                        <h:outputText value="#{solicitudBean.solicitud.id}" />
+
+                        <p:outputLabel value="Tipo:" styleClass="label-bold" />
+                        <h:outputText value="#{solicitudBean.solicitud.tipo}" />
+
+                        <p:outputLabel value="Estado:" styleClass="label-bold" />
+                        <h:outputText value="#{solicitudBean.solicitud.estado}" />
+
+                        <p:outputLabel value="Coordinador:" styleClass="label-bold" />
+                        <h:outputText value="#{solicitudBean.solicitud.coordinador}" />
+                    </div>
+                </div>
+
+                <!-- Chat y tabla de actividades -->
+                <div class="chat-activity-container">
+                    <!-- Chat de comentarios -->
+                    <div class="chat-container">
+                        <p:outputLabel value="Chat con el coordinador:" styleClass="label-bold chat-header" />
+                        <div class="chat-box">
+                            <ui:repeat value="#{comentarioBean.listaComentarios}" var="comentario">
+                                <div class="#{comentario.esPropio ? 'chat-bubble-right' : 'chat-bubble-left'}">
+                                    <h:outputText value="#{comentario.texto}" />
+                                </div>
+                            </ui:repeat>
+                        </div>
+                        <!-- Campo de texto y botón de enviar -->
+                        <div class="chat-input-container">
+                            <p:inputTextarea id="comentario" rows="1" cols="30"
+                                             value="#{comentarioBean.nuevoComentario}"
+                                             placeholder="Escribe tu mensaje..."
+                                             styleClass="comentario-textarea" />
+                            <p:commandButton value="Enviar" action="#{comentarioBean.agregarComentario}"
+                                             styleClass="submit-button" icon="pi pi-send"
+                                             update="@form" />
+                        </div>
+                    </div>
+
+                    <!-- Tabla de actividades -->
+                    <div class="activity-container">
+                        <p:outputLabel value="Historial de registro de actividades:" styleClass="label-bold" />
+                        <p:dataTable id="tablaActividades" value="#{actividadBean.listaActividades}" var="actividad"
+                                     styleClass="activity-table" emptyMessage="No hay actividades registradas.">
+                            <p:column headerText="Fecha y Hora">
+                                <h:outputText value="#{actividad.fechaHora}" />
+                            </p:column>
+                            <p:column headerText="Descripción">
+                                <h:outputText value="#{actividad.descripcion}" />
+                            </p:column>
+                            <p:column headerText="Tipo de Actividad">
+                                <h:outputText value="#{actividad.tipoActividad}" />
+                            </p:column>
+                        </p:dataTable>
+                    </div>
+                </div>
+            </p:panel>
+        </div>
+    </h:form>
+</h:body>
+</html>

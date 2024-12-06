@@ -1,0 +1,98 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 15 nov 2024, 14:10:58
+    Author     : Luc-j
+*/
+
+/* Fondo de la página con un degradado */
+.background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    font-family: Arial, sans-serif;
+}
+
+/* Contenedor principal del formulario de registro */
+.registration-container {
+    background-color: #000000;
+    padding: 30px;
+    border-radius: 15px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo del icono de usuario */
+.user-icon {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+/* Título del formulario */
+h2 {
+    color: #ffffff;
+    font-weight: normal;
+    margin: 10px 0 20px;
+}
+.label{
+    color: #ffffff;
+    text-align: left;
+}
+
+/* Estilo de los campos de entrada */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #00bdbd;
+    color: #000000;
+}
+
+/* Botón de creación de cuenta */
+.submit-button {
+    width: 50%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #00bdbd;
+    border: none;
+    border-radius: 5px;
+    color: #000000;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #00a3a3;
+}
+
+/* Enlace para iniciar sesión */
+.login-link {
+    color: #00a3e0;
+    display: block;
+    margin-top: 15px;
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+/* Enlace para crear usuario */
+.register-link {
+    color: #00a3e0;
+    display: block;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+.register-link:hover {
+    text-decoration: underline;
+}

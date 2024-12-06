@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<div class="main-content">
+   
+    <div class="sidebar">
+        <h2>Menú Coordinador</h2>
+        <ul>
+            <li>
+                <p:commandLink value="Asignar Solicitud"
+                               action="#{menuCoordinadorBean.cargarPagina('asignarSolicitud')}"
+                               update="contentPanel" process="@this" styleClass="menu-option" />
+            </li>
+            <li>
+                <p:commandLink value="Seguimiento de Solicitudes"
+                               action="#{menuCoordinadorBean.cargarPagina('seguimientoSolicitudes')}"
+                               update="contentPanel" process="@this" styleClass="menu-option" />
+            </li>
+            <li>
+                <p:commandLink value="Notificaciones"
+                               action="#{menuCoordinadorBean.cargarPagina('notificaciones')}"
+                               update="contentPanel" process="@this" styleClass="menu-option" />
+            </li>
+            <li>
+                <p:commandLink value="Historial de Solicitudes"
+                               action="#{menuCoordinadorBean.cargarPagina('historialSolicitudes')}"
+                               update="contentPanel" process="@this" styleClass="menu-option" />
+            </li>
+        </ul>
+    </div>
+
+    <!-- Contenido dinámico (cambia según la opción seleccionada) -->
+    <div class="content-panel">
+        <p:outputPanel id="contentPanel">
+            <ui:include src="#{menuCoordinadorBean.paginaActual}" />
+        </p:outputPanel>
+    </div>
+</div>
+</html>

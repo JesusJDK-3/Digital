@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+
+<!DOCTYPE html>
+<html 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Registro de Usuario</title>
+    <!-- Enlace directo al archivo CSS -->
+    <link rel="stylesheet" href="../css/EstiloGeneralCliente.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+</h:head>
+
+<h:body>
+    <div class="background">
+        <div class="registration-container">
+
+            
+            <h:messages id="messages" globalOnly="true" styleClass="alert alert-info" />
+
+            
+
+            <h:form>
+                <h:graphicImage name="img/icon.png" styleClass="user-icon" />
+                <h2>Crear cuenta</h2>
+                
+                
+                <h:outputLabel for="nombre" value="Nombre" styleClass="label"/>
+                <p:inputText id="nombre" value="#{crearCuentaClienteBean.usuario.nombre}" 
+                             required="true" 
+                             label="Nombre" 
+                             styleClass="input-field" 
+                             requiredMessage="El nombre es obligatorio." />
+                
+                
+                <h:outputLabel for="apellido" value="apellido" styleClass="label"/>
+                <p:inputText id="apellido" value="#{crearCuentaClienteBean.usuario.apellido}" 
+                             required="true" 
+                             label="apellido" 
+                             styleClass="input-field" 
+                             requiredMessage="El apellido es obligatorio." />
+
+                
+                <h:outputLabel for="correo" value="Correo" styleClass="label"/>
+                <p:inputText id="correo" value="#{crearCuentaClienteBean.usuario.correo}" 
+                             required="true" 
+                             label="Correo" 
+                             styleClass="input-field" 
+                             requiredMessage="El correo es obligatorio." />
+
+                
+                <h:outputLabel for="dni" value="DNI" styleClass="label"/>
+                <p:inputText id="dni" value="#{crearCuentaClienteBean.usuario.dni}" 
+                             required="true" 
+                             label="DNI" 
+                             styleClass="input-field" 
+                             requiredMessage="El DNI es obligatorio." />
+
+                
+                <h:outputLabel for="contrasena" value="Contraseña" styleClass="label"/>
+                <p:password id="contrasena" value="#{crearCuentaClienteBean.usuario.contrasena}" 
+                            required="true" 
+                            label="Contraseña" 
+                            styleClass="input-field" 
+                            requiredMessage="La contraseña es obligatoria." />
+
+                
+                <p:commandButton value="Crear" 
+                                 action="#{crearCuentaClienteBean.registrar}" 
+                                 styleClass="submit-button" 
+                                 update="messages" />
+
+                
+                <h:outputLink value="InicioSesionCliente.xhtml" styleClass="login-link">Inicia sesión aquí</h:outputLink>
+            </h:form>
+        </div>
+    </div>
+    
+    
+</h:body>
+</html>

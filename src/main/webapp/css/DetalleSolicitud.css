@@ -1,0 +1,18 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 16 nov 2024, 21:54:24
+    Author     : Luc-j
+*/
+.detalle-solicitud-container {
+    margin: 20px auto; /* Centrado horizontal y margen superior/inferior */
+    max-width: 1000px; /* Limita el ancho máximo del contenido */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #ddd; /* Borde opcional */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo ligeramente gris */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+

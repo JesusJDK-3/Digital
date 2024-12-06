@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<html xmlns="http://www.w3.org/2001/XMLSchema"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:body>
+    <f:view>
+        <!-- Llamar al método cargarDatosUsuario al cargar la página -->
+        <f:metadata>
+            <f:event type="preRenderView" listener="#{usuarioBean.cargarDatosUsuario}" />
+        </f:metadata>
+
+        <h:form>
+            <p:panel header="Actualizar Datos Personales">
+                <div>
+                    <!-- Nombre -->
+                    <h:outputLabel for="nombre" value="Nombre:" style="font-weight: bold; color: black;" />
+                    <p:inputText id="nombre" value="#{usuarioBean.usuario.nombre}" style="width: 100%;" />
+                    
+                    <!-- Apellido -->
+                    <h:outputLabel for="apellido" value="Apellido" style="font-weight: bold; color: black;" />
+                    <p:inputText id="apellido" value="#{usuarioBean.usuario.apellido}" style="width: 100%;" />
+
+                    <!-- Correo -->
+                    <h:outputLabel for="correo" value="Correo:" style="font-weight: bold; color: black;" />
+                    <p:inputText id="correo" value="#{usuarioBean.usuario.correo}" style="width: 100%;" />
+
+                    <!-- Contraseña -->
+                    <h:outputLabel for="contrasena" value="Contraseña:" style="font-weight: bold; color: black;" />
+                    <p:password id="contrasena" value="#{usuarioBean.usuario.contrasena}" style="width: 100%;" />
+
+                    <!-- DNI -->
+                    <h:outputLabel for="dni" value="DNI:" style="font-weight: bold; color: black;" />
+                    <p:inputText id="dni" value="#{usuarioBean.usuario.dni}" style="width: 100%;" />
+
+                    <!-- Botón Guardar -->
+                    <div style="text-align: center; margin-top: 20px;">
+                        <p:commandButton value="Guardar" action="#{usuarioBean.guardarDatos}" 
+                                         style="background-color: #007bff; color: white; border-radius: 5px; padding: 10px 20px; font-weight: bold;" />
+                    </div>
+                </div>
+            </p:panel>
+        </h:form>
+    </f:view>
+</h:body>
+</html>

@@ -1,0 +1,49 @@
+<!-- Fragmento de la página (sin <html>, <h:head>, ni <h:body>) -->
+<!-- Declaración de los espacios de nombres al inicio del archivo -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:form id="formularioRegistro" prependId="false">
+    
+    <p:panel header="Registrar Solicitud" class="ui-panel">
+        
+        <!-- Campo para descripción -->
+        <p:outputLabel value="Descripción:" for="descripcion" style="font-weight: bold;" />
+        <p:inputTextarea id="descripcion" rows="5" cols="50"
+                         value="#{solicitudBean.solicitud.descripcion}"
+                         placeholder="Escribe aquí la descripción de tu solicitud"
+                         style="width: 100%; margin-top: 10px;"
+                         required="true"
+                         requiredMessage="La descripción es obligatoria." />
+        <p:message for="descripcion" style="color: red;" />
+
+        <!-- Desplegable para tipo de solicitud -->
+        <p:outputLabel value="Tipo de Solicitud:" for="tipo" style="font-weight: bold;" />
+        <p:selectOneMenu id="tipo" value="#{solicitudBean.solicitud.tipo}" 
+                         style="width: 100%; margin-top: 10px;" 
+                         required="true" 
+                         requiredMessage="Debe seleccionar un tipo de solicitud.">
+            <f:selectItem itemValue="" itemLabel="Seleccione un tipo" noSelectionOption="true" />
+            <f:selectItem itemValue="error" itemLabel="Error" />
+            <f:selectItem itemValue="capacitacion" itemLabel="Capacitación" />
+            <f:selectItem itemValue="requerimiento" itemLabel="Requerimiento" />
+        </p:selectOneMenu>
+        <p:message for="tipo" style="color: red;" />
+
+        <!-- Contenedor del botón alineado a la derecha -->
+        <div class="button-container" style="text-align: right; margin-top: 20px;">
+            <p:commandButton value="Enviar" action="#{solicitudBean.registrarSolicitud}"
+                             styleClass="submit-button"
+                             update="formularioRegistro"  
+                             oncomplete="if (args &amp;&amp; !args.validationFailed) { PF('formularioRegistro').reset(); }" 
+                             ajax="true" />
+        </div>
+
+    </p:panel>
+
+</h:form>
+
+</html>

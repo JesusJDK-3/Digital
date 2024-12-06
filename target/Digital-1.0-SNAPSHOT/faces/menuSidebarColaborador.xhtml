@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<div class="main-content">
+    <!-- Menú de opciones (sidebar) -->
+    <div class="sidebar">
+        <h2>Menú Colaborador</h2>
+        <ul>
+            <li>
+                <p:commandLink value="Solicitudes Activas"
+                               action="#{menuColaboradorBean.cargarPagina('solicitudesActivas')}"
+                               update="contentPanel" process="@this" styleClass="menu-option" />
+            </li>
+            <li>
+                <p:commandLink value="Filtros y Orden"
+                               action="#{menuColaboradorBean.cargarPagina('filtrosOrden')}"
+                               update="contentPanel" process="@this" styleClass="menu-option" />
+            </li>
+            <li>
+                <p:commandLink value="Detalles"
+                               action="#{menuColaboradorBean.cargarPagina('detalles')}"
+                               update="contentPanel" process="@this" styleClass="menu-option" />
+            </li>
+        </ul>
+    </div>
+
+    <!-- Contenido dinámico (cambia según la opción seleccionada) -->
+    <div class="content-panel">
+        <p:outputPanel id="contentPanel">
+            <ui:include src="#{menuColaboradorBean.paginaActual}" />
+        </p:outputPanel>
+    </div>
+</div>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <title>Menú Cliente</title>
+    <link rel="stylesheet" href="../css/MenuCliente.css" />
+    <link rel="stylesheet" href="../css/DetalleSolicitud.css"/>
+    <link rel="stylesheet" href="../css/RegistrarSolicitud.css" />
+</h:head>
+
+<h:body>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Barra superior fija -->
+        <div class="top-bar">
+            <div class="user-info">
+                <span class="user-name">
+                    <!-- Muestra el nombre del cliente desde el Bean -->
+                    #{menuBean.nombreCliente}
+                </span>
+                <h:graphicImage name="img/icon.png" styleClass="user-icon" />
+            </div>
+        </div>
+
+        <!-- Contenido dinámico completo (main-content) -->
+        <div>
+            <p:outputPanel id="mainContentPanel">
+                <ui:include src="#{menuBean.paginaActualMain}" />
+            </p:outputPanel>
+        </div>
+
+        <!-- Componente Poll para actualización automática -->
+    </div>
+</h:body>
+</html>

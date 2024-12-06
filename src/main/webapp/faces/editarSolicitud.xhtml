@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Editar Solicitudes</title>
+</h:head>
+
+<h:body>
+    <h:form id="formEditarSolicitud">
+        <p:panel header="Editar Solicitudes Activas" class="ui-panel">
+            <!-- Tabla de Solicitudes Activas -->
+            <p:dataTable id="tablaSolicitudes" value="#{solicitudBean.solicitudesActivas}" var="solicitud" 
+                         style="width: 100%;" emptyMessage="No hay solicitudes activas para editar."
+                         rows="10">
+                
+                <!-- Columna ID -->
+                <p:column headerText="ID" style="width: 10%;">
+                    <h:outputText value="#{solicitud.id}" />
+                </p:column>
+                
+                <!-- Columna Descripción -->
+                <p:column headerText="Descripción" style="width: 50%;">
+                    <p:inputTextarea value="#{solicitud.descripcion}" rows="2" cols="30" autoResize="false" />
+                </p:column>
+                
+                <!-- Columna Tipo -->
+                <p:column headerText="Tipo" style="width: 20%;">
+                    <p:selectOneMenu value="#{solicitud.tipo}">
+                        <f:selectItem itemValue="error" itemLabel="Error" />
+                        <f:selectItem itemValue="capacitacion" itemLabel="Capacitación" />
+                        <f:selectItem itemValue="requerimiento" itemLabel="Requerimiento" />
+                    </p:selectOneMenu>
+                </p:column>
+                
+                <!-- Columna de Acciones -->
+                <p:column headerText="Acciones" style="width: 20%;">
+                    <!-- Botón Editar -->
+                    <p:commandButton value="Guardar" icon="pi pi-check"
+                                    action="#{solicitudBean.editarSolicitud(solicitud)}"
+                                    update="@form" />  
+                    
+                    <!-- Botón Eliminar -->
+                    <p:commandButton value="Eliminar" icon="pi pi-times" styleClass="ui-button-danger"
+                                     action="#{solicitudBean.eliminarSolicitud(solicitud.id)}"
+                                     update="@form"
+                                     onclick="return confirm('¿Está seguro de que desea eliminar esta solicitud?');" />
+                </p:column>
+            </p:dataTable>
+        </p:panel>
+    </h:form>
+</h:body>
+</html>
